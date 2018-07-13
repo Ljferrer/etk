@@ -11,7 +11,7 @@ def main():
 
     # docs_file = sys.argv[1]
     docs_file = "./resources/new_2018-04-03-first-10000.jl"
-    cdr_docs = load_docs(docs_file)
+    cdr_docs = load_docs(docs_file, end=50)
     n_docs = len(cdr_docs)
 
     t1 = time.time()
@@ -45,7 +45,7 @@ def main():
     print("Time spent preparing document embeddings for serialization: {:.4f}s".format(t6-t5))
 
     # file_prefix = sys.argv[3]
-    file_prefix = "speed_test_embeddings"
+    file_prefix = "dataset_of_embeddings"
     # directory = sys.argv[2]
     directory = os.getcwd() + "/resources/"
     serialize_in_chunks(embedded_docs,
